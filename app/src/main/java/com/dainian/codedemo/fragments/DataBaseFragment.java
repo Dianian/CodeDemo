@@ -147,75 +147,60 @@ public class DataBaseFragment extends Fragment {
         });
 
         //创建数据库
-        mBtnCreate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mDatabaseHelper = new MyDatabaseHelper(getActivity(), "BookStore.db", null, 1);
-                mDatabaseHelper.getWritableDatabase();
-            }
+        mBtnCreate.setOnClickListener(v -> {
+            mDatabaseHelper = new MyDatabaseHelper(getActivity(), "BookStore.db", null, 1);
+            mDatabaseHelper.getWritableDatabase();
         });
 
         //数据库 增
-        mBtnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SQLiteDatabase database = mDatabaseHelper.getReadableDatabase();
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("name", "The Da Vinci Code");
-                contentValues.put("author", "Dan Brown");
-                contentValues.put("pages", 454);
-                contentValues.put("price", 16.96);
-                database.insert("BOOK", null, contentValues);
-                contentValues.clear();
-                contentValues.put("name", "书名");
-                contentValues.put("author", "作者");
-                contentValues.put("pages", 50);
-                contentValues.put("price", 15);
-                database.insert("BOOK", null, contentValues);
-                contentValues.clear();
-            }
+        mBtnAdd.setOnClickListener(v -> {
+            SQLiteDatabase database = mDatabaseHelper.getReadableDatabase();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("name", "The Da Vinci Code");
+            contentValues.put("author", "Dan Brown");
+            contentValues.put("pages", 454);
+            contentValues.put("price", 16.96);
+            database.insert("BOOK", null, contentValues);
+            contentValues.clear();
+            contentValues.put("name", "书名");
+            contentValues.put("author", "作者");
+            contentValues.put("pages", 50);
+            contentValues.put("price", 15);
+            database.insert("BOOK", null, contentValues);
+            contentValues.clear();
         });
 
         //数据库 删
-        mBtnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SQLiteDatabase database = mDatabaseHelper.getReadableDatabase();
-                database.delete("BOOK", "pages>?", new String[]{"400"});
-            }
+        mBtnDelete.setOnClickListener(v -> {
+            SQLiteDatabase database = mDatabaseHelper.getReadableDatabase();
+            database.delete("BOOK", "pages>?", new String[]{"400"});
         });
 
         //数据库 改
-        mBtnUpdata.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SQLiteDatabase database = mDatabaseHelper.getReadableDatabase();
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("price", 000);
-                database.update("BOOK", contentValues, "name = ?", new String[]{"书名"});
-            }
+        mBtnUpdata.setOnClickListener(v -> {
+            SQLiteDatabase database = mDatabaseHelper.getReadableDatabase();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("price", 000);
+            database.update("BOOK", contentValues, "name = ?", new String[]{"书名"});
         });
 
         //数据库 查
-        mBtnQuery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SQLiteDatabase database = mDatabaseHelper.getReadableDatabase();
-                Cursor cursor = database.query("BOOK", null, null, null, null, null, null);
-                if (cursor.moveToFirst()) {
-                    do {
-                        String name = cursor.getString(cursor.getColumnIndex("name"));
-                        String author = cursor.getString(cursor.getColumnIndex("author"));
-                        String pages = cursor.getString(cursor.getColumnIndex("pages"));
-                        String price = cursor.getString(cursor.getColumnIndex("price"));
-                        Log.d(TAG, "book name is " + name);
-                        Log.d(TAG, "book author is " + author);
-                        Log.d(TAG, "book pages is " + pages);
-                        Log.d(TAG, "book price is " + price);
-                    } while (cursor.moveToNext());
-                }
-                cursor.close();
+        mBtnQuery.setOnClickListener(v -> {
+            SQLiteDatabase database = mDatabaseHelper.getReadableDatabase();
+            Cursor cursor = database.query("BOOK", null, null, null, null, null, null);
+            if (cursor.moveToFirst()) {
+                do {
+                    String name = cursor.getString(cursor.getColumnIndex("name"));
+                    String author = cursor.getString(cursor.getColumnIndex("author"));
+                    String pages = cursor.getString(cursor.getColumnIndex("pages"));
+                    String price = cursor.getString(cursor.getColumnIndex("price"));
+                    Log.d(TAG, "book name is " + name);
+                    Log.d(TAG, "book author is " + author);
+                    Log.d(TAG, "book pages is " + pages);
+                    Log.d(TAG, "book price is " + price);
+                } while (cursor.moveToNext());
             }
+            cursor.close();
         });
     }
 

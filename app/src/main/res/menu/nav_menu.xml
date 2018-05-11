@@ -21,6 +21,16 @@
             android:id="@+id/itrm_permissions"
             android:icon="@drawable/ic_launcher_foreground"
             android:title="权限申请" />
+
+        <item
+            android:id="@+id/itrm_view"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="View/自定义View相关" />
+
+        <item
+            android:id="@+id/itrm_media"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="多媒体" />
     </group>
 
 </menu>

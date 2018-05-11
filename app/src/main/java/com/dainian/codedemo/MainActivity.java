@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.dainian.codedemo.fragments.ActivityFragment;
@@ -79,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
 
         mNav = findViewById(R.id.nav);
         mNav.setCheckedItem(R.id.item_activity);//设置默认选中项
+        //Nav 头部的监听
+        mNav.getHeaderView(0).setOnClickListener(v -> {
+            Toast.makeText(this, "TTT", Toast.LENGTH_SHORT).show();
+        });
         //Nav 界面的监听
         mNav.setNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
@@ -98,11 +103,22 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.itrm_database:
                     addFragment(new DataBaseFragment());
+                    mToolBar.setTitle("存储相关");
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.itrm_permissions:
                     addFragment(new PermissionsFragment());
                     mToolBar.setTitle("权限申请");
+                    mDeaweerLayout.closeDrawers();
+                    break;
+                case R.id.itrm_view:
+                    addFragment(new PermissionsFragment());
+                    mToolBar.setTitle("View/自定义View");
+                    mDeaweerLayout.closeDrawers();
+                    break;
+                case R.id.itrm_media:
+                    addFragment(new PermissionsFragment());
+                    mToolBar.setTitle("多媒体相关");
                     mDeaweerLayout.closeDrawers();
                     break;
             }
@@ -138,19 +154,14 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onReceive(final Context context, Intent intent) {
-            Toast.makeText(context, "000", Toast.LENGTH_SHORT).show();
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle("提示");
             builder.setMessage("强制下线");
             builder.setCancelable(false);
-            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    finish();
+            builder.setPositiveButton("确定", (dialog, which) -> {
+                finish();
 //                    ActivityCollecter.finishAll();
-
 //                    context.startActivity(new Intent(context, LoginActivity.class));
-                }
             });
             builder.show();
         }
