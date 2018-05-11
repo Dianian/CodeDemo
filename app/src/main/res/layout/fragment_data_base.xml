@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="写入文件"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="读取文件"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/tv_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000" />
+
+        <EditText
+            android:id="@+id/et_write_sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_write_sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="写入SP"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_read_sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="读取SP"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/tv_read_sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000" />
+
+        <Button
+            android:id="@+id/btn_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="创建数据库"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="增"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="删"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_updata"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="改"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="查"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+
+</ScrollView>

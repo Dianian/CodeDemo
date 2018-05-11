@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.dainian.codedemo.fragments.ActivityFragment;
 import com.dainian.codedemo.fragments.BroadcastReceiverFragment;
+import com.dainian.codedemo.fragments.DataBaseFragment;
 import com.dainian.codedemo.fragments.PermissionsFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.itrm_database:
-                    addFragment(new ActivityFragment());
+                    addFragment(new DataBaseFragment());
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.itrm_permissions:

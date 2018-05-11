@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.dainian.codedemo.MainActivity;
 import com.dainian.codedemo.R;
 
 /**
@@ -41,15 +40,12 @@ public class PermissionsFragment extends Fragment {
     }
 
     private void initEvent(){
-        mBtnCallPhone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE}, 1);
-                } else {
-                    call();
-                }
+        mBtnCallPhone.setOnClickListener(v -> {
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE}, 1);
+            } else {
+                call();
             }
         });
     }
