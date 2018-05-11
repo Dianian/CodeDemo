@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.dainian.codedemo.fragments.ActivityFragment;
 import com.dainian.codedemo.fragments.BroadcastReceiverFragment;
+import com.dainian.codedemo.fragments.PermissionsFragment;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar mToolBar;
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(getResources().getDrawable(R.mipmap.category));
+            actionBar.setHomeAsUpIndicator(getResources().getDrawable(R.mipmap.ic_launcher_round));
         }
 
         mNav = findViewById(R.id.nav);
@@ -82,10 +83,12 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.item_activity:
                     addFragment(new ActivityFragment());
+                    mToolBar.setTitle("Activity");
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.item_broadcast:
                     addFragment(new BroadcastReceiverFragment());
+                    mToolBar.setTitle("BroadcastReceiver");
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.itrm_service:
@@ -94,6 +97,11 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.itrm_database:
                     addFragment(new ActivityFragment());
+                    mDeaweerLayout.closeDrawers();
+                    break;
+                case R.id.itrm_permissions:
+                    addFragment(new PermissionsFragment());
+                    mToolBar.setTitle("权限申请");
                     mDeaweerLayout.closeDrawers();
                     break;
             }

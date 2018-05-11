@@ -3,12 +3,13 @@
     package="com.dainian.codedemo">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -21,13 +22,13 @@
         <activity android:name=".activitys.TabLayoutActivity"></activity>
 
 
-
+        <!--静态注册广播Demo-->
         <receiver
             android:name=".demoBroadcast.BootCompleteReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="000000"/>
+                <action android:name="000000" />
             </intent-filter>
         </receiver>
     </application>

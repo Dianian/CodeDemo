@@ -17,6 +17,10 @@
             android:id="@+id/itrm_database"
             android:icon="@drawable/ic_launcher_foreground"
             android:title="DataBase" />
+        <item
+            android:id="@+id/itrm_permissions"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="权限申请" />
     </group>
 
 </menu>
