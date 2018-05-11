@@ -1,4 +1,4 @@
-package com.dainian.codedemo.fragments;
+package com.dainian.codedemo.demoFragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,15 +12,21 @@ import com.dainian.codedemo.R;
 
 /**
  * @author 作者 FuBowen
- * @version 创建时间：2018/5/10 15:50
+ * @version 创建时间：2018/5/11 9:03
  */
-public class BroadcastReceiverFragment extends Fragment {
+public class TabLayoutDemoFragment extends Fragment {
+    public static TabLayoutDemoFragment newInstance() {
 
+        Bundle args = new Bundle();
+
+        TabLayoutDemoFragment fragment = new TabLayoutDemoFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_broadcast, container, false);
-        return view;
+        return inflater.inflate(R.layout.fragment_tab_layout, container, false);
     }
 }
