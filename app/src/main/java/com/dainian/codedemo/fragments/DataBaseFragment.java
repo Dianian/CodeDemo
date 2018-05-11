@@ -1,5 +1,6 @@
 package com.dainian.codedemo.fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -72,6 +73,7 @@ public class DataBaseFragment extends Fragment {
     }
 
     private void initEvent() {
+        //写入文件
         mBtnOutput.setOnClickListener(v -> {
             String data = mEtOutput.getText().toString();
             FileOutputStream fileOutputStream = null;
@@ -95,6 +97,7 @@ public class DataBaseFragment extends Fragment {
             }
         });
 
+        //读取文件
         mBtnInput.setOnClickListener(v -> {
             FileInputStream fileInputStream = null;
             BufferedReader bufferedReader = null;
@@ -119,6 +122,21 @@ public class DataBaseFragment extends Fragment {
                     e.printStackTrace();
                 }
             }
+        });
+
+        //SP写入
+        mBtnWriteSp.setOnClickListener(v -> {
+            SharedPreferences.Editor editor = getActivity().getSharedPreferences("SPdata", MODE_PRIVATE).edit();
+            editor.putString("str", mEtWriteSp.getText().toString());
+            editor.apply();
+            Toast.makeText(getContext(), "写入完成！", Toast.LENGTH_SHORT).show();
+        });
+
+        //SP读取
+        mBtnReadSp.setOnClickListener(v -> {
+            SharedPreferences preferences = getActivity().getSharedPreferences("SPdata", MODE_PRIVATE);
+            String s = preferences.getString("str", "");
+            mTvReadSp.setText(s);
         });
     }
 
