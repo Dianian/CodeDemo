@@ -1,10 +1,13 @@
 package com.dainian.codedemo.fragments;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +24,8 @@ public class ActivityFragment extends Fragment {
 
 
     private Button mBtnTabLayout;
+    private Button mBtnAlertdialog;
+    private Button mBtnProgressdialog;
 
     @Nullable
     @Override
@@ -33,6 +38,8 @@ public class ActivityFragment extends Fragment {
 
     private void initView(View view) {
         mBtnTabLayout = view.findViewById(R.id.btn_tab_layout);
+        mBtnAlertdialog = view.findViewById(R.id.btn_alertdialog);
+        mBtnProgressdialog = view.findViewById(R.id.btn_progressdialog);
     }
 
     private void initEent() {
@@ -42,5 +49,42 @@ public class ActivityFragment extends Fragment {
                 startActivity(new Intent(getActivity(), TabLayoutActivity.class));
             }
         });
+
+        mBtnAlertdialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+                dialog.setTitle("标题");
+                dialog.setMessage("信息");
+                dialog.setCancelable(false);
+                dialog.setPositiveButton("确定", new DialogInterface.
+                        OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                dialog.setNegativeButton("取消", new DialogInterface.
+                        OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                dialog.show();
+            }
+        });
+
+        mBtnProgressdialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProgressDialog progressDialog = new ProgressDialog
+                        (getActivity());
+                progressDialog.setTitle("标题");
+                progressDialog.setMessage("Loading...");
+                progressDialog.setCancelable(true);//是否取消
+                progressDialog.show();
+            }
+        });
     }
+
+
 }

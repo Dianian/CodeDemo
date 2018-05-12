@@ -12,5 +12,19 @@
         android:text="TabLayoyt"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn_alertdialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AlertDialog"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_progressdialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ProgressDialog"
+        android:textAllCaps="false" />
+
 
 </LinearLayout>
