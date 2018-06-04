@@ -10,27 +10,32 @@
             android:icon="@drawable/ic_launcher_foreground"
             android:title="BroadcastReceiver" />
         <item
-            android:id="@+id/itrm_service"
+            android:id="@+id/item_service"
             android:icon="@drawable/ic_launcher_foreground"
             android:title="Service" />
         <item
-            android:id="@+id/itrm_database"
+            android:id="@+id/item_database"
             android:icon="@drawable/ic_launcher_foreground"
             android:title="存储相关" />
         <item
-            android:id="@+id/itrm_permissions"
+            android:id="@+id/item_permissions"
             android:icon="@drawable/ic_launcher_foreground"
             android:title="权限申请" />
 
         <item
-            android:id="@+id/itrm_view"
+            android:id="@+id/item_view"
             android:icon="@drawable/ic_launcher_foreground"
             android:title="View/自定义View相关" />
-
         <item
-            android:id="@+id/itrm_media"
+            android:id="@+id/item_media"
             android:icon="@drawable/ic_launcher_foreground"
             android:title="多媒体" />
+        <item
+            android:id="@+id/item_rxjava2"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="RxJava2 Demo" />
+
+
     </group>
 
 </menu>

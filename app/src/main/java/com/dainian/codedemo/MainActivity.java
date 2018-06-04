@@ -24,6 +24,7 @@ import com.dainian.codedemo.fragments.ActivityFragment;
 import com.dainian.codedemo.fragments.BroadcastReceiverFragment;
 import com.dainian.codedemo.fragments.DataBaseFragment;
 import com.dainian.codedemo.fragments.PermissionsFragment;
+import com.dainian.rxjava2demolibrary.RxJava2Fragment;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar mToolBar;
@@ -97,28 +98,33 @@ public class MainActivity extends AppCompatActivity {
                     mToolBar.setTitle("BroadcastReceiver");
                     mDeaweerLayout.closeDrawers();
                     break;
-                case R.id.itrm_service:
+                case R.id.item_service:
                     addFragment(new ActivityFragment());
                     mDeaweerLayout.closeDrawers();
                     break;
-                case R.id.itrm_database:
+                case R.id.item_database:
                     addFragment(new DataBaseFragment());
                     mToolBar.setTitle("存储相关");
                     mDeaweerLayout.closeDrawers();
                     break;
-                case R.id.itrm_permissions:
+                case R.id.item_permissions:
                     addFragment(new PermissionsFragment());
                     mToolBar.setTitle("权限申请");
                     mDeaweerLayout.closeDrawers();
                     break;
-                case R.id.itrm_view:
+                case R.id.item_view:
                     addFragment(new PermissionsFragment());
                     mToolBar.setTitle("View/自定义View");
                     mDeaweerLayout.closeDrawers();
                     break;
-                case R.id.itrm_media:
+                case R.id.item_media:
                     addFragment(new PermissionsFragment());
                     mToolBar.setTitle("多媒体相关");
+                    mDeaweerLayout.closeDrawers();
+                    break;
+                case R.id.item_rxjava2:
+                    addFragment(new RxJava2Fragment());
+                    mToolBar.setTitle("Rxjava2Demo");
                     mDeaweerLayout.closeDrawers();
                     break;
             }
