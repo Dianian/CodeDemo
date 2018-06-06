@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(getResources().getDrawable(R.mipmap.ic_launcher_round));
+            actionBar.setHomeAsUpIndicator(R.drawable.penguin);
         }
 
         mNav = findViewById(R.id.nav);
