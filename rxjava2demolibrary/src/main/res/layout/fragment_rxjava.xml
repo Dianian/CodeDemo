@@ -117,6 +117,41 @@
                 android:layout_height="wrap_content"
                 android:text="转换操作符 flatMap()"
                 android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_concat_map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="转换操作符 concatMap()"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_buffer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="转换操作符 buffer()"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_groupBy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="转换操作符 groupBy()"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_scan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="转换操作符 scan()"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_window"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="转换操作符 window()"
+                android:textAllCaps="false" />
         </LinearLayout>
     </ScrollView>
 

@@ -21,10 +21,13 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
+import io.reactivex.observables.GroupedObservable;
 
 /**
  * @author By FuBowen
@@ -47,6 +50,11 @@ public class RxJava2Fragment extends Fragment {
     private Button mBtnEoe;
     private Button mBtnMap;
     private Button mBtnFlatMap;
+    private Button mBtnConcatMap;
+    private Button mBtnBuffer;
+    private Button mBtnGroupBy;
+    private Button mBtnScan;
+    private Button mBtnWindow;
 
     @Nullable
     @Override
@@ -73,6 +81,11 @@ public class RxJava2Fragment extends Fragment {
         mBtnEoe = view.findViewById(R.id.btn_eoe);
         mBtnMap = view.findViewById(R.id.btn_map);
         mBtnFlatMap = view.findViewById(R.id.btn_flat_map);
+        mBtnConcatMap = view.findViewById(R.id.btn_concat_map);
+        mBtnBuffer = view.findViewById(R.id.btn_buffer);
+        mBtnGroupBy = view.findViewById(R.id.btn_groupBy);
+        mBtnScan = view.findViewById(R.id.btn_scan);
+        mBtnWindow = view.findViewById(R.id.btn_window);
     }
 
     private void initEvent() {
@@ -116,6 +129,14 @@ public class RxJava2Fragment extends Fragment {
         RxView.clicks(mBtnMap).subscribe(o -> map()); //map()
 
         RxView.clicks(mBtnFlatMap).subscribe(o -> flatMap());  //flatMap()
+
+        RxView.clicks(mBtnConcatMap).subscribe(o -> concatMap());//concatMap
+
+        RxView.clicks(mBtnBuffer).subscribe(o -> bufferr());//bufferr
+
+        RxView.clicks(mBtnGroupBy).subscribe(o -> groupBy());//groupBy
+
+        RxView.clicks(mBtnScan).subscribe(o -> scan());//Scan
     }
 
     private void abc() {
@@ -194,27 +215,28 @@ public class RxJava2Fragment extends Fragment {
      * 和 just() 类似，可以传入多于十个的变量，可以传入一个数组
      */
     private void fromArray() {
-        Observable.fromArray(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13}).subscribe(new Observer<Integer>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                Log.e(TAG, "onSubscribe: ");
-            }
+        Observable.fromArray(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13})
+                .subscribe(new Observer<Integer>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        Log.e(TAG, "onSubscribe: ");
+                    }
 
-            @Override
-            public void onNext(Integer integer) {
-                Log.e(TAG, "onNext: " + integer);
-            }
+                    @Override
+                    public void onNext(Integer integer) {
+                        Log.e(TAG, "onNext: " + integer);
+                    }
 
-            @Override
-            public void onError(Throwable e) {
-                Log.e(TAG, "onError: ");
-            }
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e(TAG, "onError: ");
+                    }
 
-            @Override
-            public void onComplete() {
-                Log.e(TAG, "onComplete: ");
-            }
-        });
+                    @Override
+                    public void onComplete() {
+                        Log.e(TAG, "onComplete: ");
+                    }
+                });
     }
 
     /**
@@ -447,9 +469,134 @@ public class RxJava2Fragment extends Fragment {
     }
 
     /**
-     *
+     * 与map相似 返回一个新的被观察者 ,输出结果 无序
      */
     private void flatMap() {
+        List<Person> personList = getPerson();
+        Observable.fromIterable(personList).flatMap(new Function<Person, ObservableSource<Plan>>() {
+            @Override
+            public ObservableSource<Plan> apply(Person person) throws Exception {
+                return Observable.fromIterable(person.getPlanList());
+            }
+        }).flatMap(new Function<Plan, ObservableSource<String>>() {
+            @Override
+            public ObservableSource<String> apply(Plan plan) throws Exception {
+                return Observable.fromIterable(plan.getActionList());
+            }
+        }).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                Log.e(TAG, "accept: " + s);
+            }
+        });
+    }
 
+    /**
+     * 与 flatMap 一样 输出结果有序
+     */
+    private void concatMap() {
+        List<Person> personList = getPerson();
+        Observable.fromIterable(personList).concatMap(new Function<Person, ObservableSource<Plan>>() {
+            @Override
+            public ObservableSource<Plan> apply(Person person) throws Exception {
+                return Observable.fromIterable(person.getPlanList());
+            }
+        }).concatMap(new Function<Plan, ObservableSource<String>>() {
+            @Override
+            public ObservableSource<String> apply(Plan plan) throws Exception {
+                return Observable.fromIterable(plan.getActionList());
+            }
+        }).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                Log.e(TAG, "accept: " + s);
+            }
+        });
+    }
+
+
+    private List<Person> getPerson() {
+        List<Person> mPersonList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Person person = new Person();
+            person.setName("名字" + i);
+            List<Plan> plans = new ArrayList<>();
+            for (int j = 0; j < 5; j++) {
+                Plan plan = new Plan();
+                plan.setTime("时间" + j);
+                plan.setContent("内容" + i + j);
+                List<String> strings = new ArrayList<>();
+                for (int k = 0; k < 5; k++) {
+                    String s = "字符" + i + j + k;
+                    strings.add(s);
+                    plan.setActionList(strings);
+                }
+                plans.add(plan);
+                person.setPlanList(plans);
+            }
+            mPersonList.add(person);
+        }
+        return mPersonList;
+    }
+
+    /**
+     * 当缓冲区存够一定的数量后一并发出
+     */
+    private void bufferr() {
+        Observable.just(1, 2, 3, 4, 5)
+                .buffer(2, 1)// 数量  /输出后跳过几个元素
+                .subscribe(new Consumer<List<Integer>>() {
+                    @Override
+                    public void accept(List<Integer> integers) throws Exception {
+                        Log.e(TAG, "缓冲区大小" + integers.size());
+
+                        for (Integer i : integers) {
+                            Log.e(TAG, "accept: " + i);
+                        }
+                    }
+                });
+    }
+
+    /**
+     * 对发送的数据进行分组 ，每组都会返回一个被观察者
+     */
+    private void groupBy() {
+        Observable.just(1, 2, 3, 4, 5, 6, 7, 8, 9)
+                .groupBy(new Function<Integer, Object>() {
+                    @Override
+                    public Object apply(Integer integer) throws Exception {
+                        Log.e(TAG, String.valueOf(integer));
+                        Log.e(TAG, String.valueOf(integer % 3));
+                        return integer % 3;
+                    }
+                }).subscribe(new Consumer<GroupedObservable<Object, Integer>>() {
+            @Override
+            public void accept(GroupedObservable<Object, Integer> objectIntegerGroupedObservable) throws Exception {
+                objectIntegerGroupedObservable.subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer) throws Exception {
+                        Log.e(TAG, "name" + objectIntegerGroupedObservable.getKey() + "value " + integer);
+                    }
+                });
+            }
+        });
+    }
+
+    /**
+     *
+     */
+    private void scan() {
+        Observable.just(1, 2, 3, 4, 5, 6, 7)
+                .scan(new BiFunction<Integer, Integer, Integer>() {
+                    @Override
+                    public Integer apply(Integer integer, Integer integer2) throws Exception {
+                        return null;
+                    }
+                }).subscribe(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) throws Exception {
+
+            }
+        });
     }
 }
