@@ -137,6 +137,8 @@ public class RxJava2Fragment extends Fragment {
         RxView.clicks(mBtnGroupBy).subscribe(o -> groupBy());//groupBy
 
         RxView.clicks(mBtnScan).subscribe(o -> scan());//Scan
+
+        RxView.clicks(mBtnWindow).subscribe(o -> window());
     }
 
     private void abc() {
@@ -583,20 +585,43 @@ public class RxJava2Fragment extends Fragment {
     }
 
     /**
-     *
+     * 将传入的数据以一定的方式聚合
      */
     private void scan() {
         Observable.just(1, 2, 3, 4, 5, 6, 7)
                 .scan(new BiFunction<Integer, Integer, Integer>() {
                     @Override
                     public Integer apply(Integer integer, Integer integer2) throws Exception {
-                        return null;
+                        Log.e(TAG, "int1=" + integer);
+                        Log.e(TAG, "int2=" + integer2);
+                        Log.e(TAG, "int1+int2=" + (integer + integer2));
+                        return integer + integer2;
                     }
                 }).subscribe(new Consumer<Integer>() {
             @Override
             public void accept(Integer integer) throws Exception {
-
+                Log.e(TAG, "accept: ============" + integer);
             }
         });
+    }
+
+    /**
+     * 将指定数量的事件分为一组，返回一个被观察者
+     */
+    private void window() {
+        Observable.just(1, 2, 3, 4, 5)
+                .window(2)//填入数量  每发送两个时间就会分为一组
+                .subscribe(new Consumer<Observable<Integer>>() {
+                    @Override
+                    public void accept(Observable<Integer> integerObservable) throws Exception {
+                        Log.e(TAG, "========================" );
+                        integerObservable.subscribe(new Consumer<Integer>() {
+                            @Override
+                            public void accept(Integer integer) throws Exception {
+                                Log.e(TAG, "accept: "+integer );
+                            }
+                        });
+                    }
+                });
     }
 }
