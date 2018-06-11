@@ -25,6 +25,7 @@ import com.dainian.codedemo.fragments.BroadcastReceiverFragment;
 import com.dainian.codedemo.fragments.DataBaseFragment;
 import com.dainian.codedemo.fragments.PermissionsFragment;
 import com.dainian.rxjava2demolibrary.RxJava2Fragment;
+import com.dainian.viewdemolibrary.ViewFragment;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar mToolBar;
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.item_view:
-                    addFragment(new PermissionsFragment());
+                    addFragment(new ViewFragment());
                     mToolBar.setTitle("View/自定义View");
                     mDeaweerLayout.closeDrawers();
                     break;

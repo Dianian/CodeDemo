@@ -1,1 +1,1 @@
-include ':app', ':rxjava2demolibrary'
+include ':app', ':rxjava2demolibrary', ':viewdemolibrary'

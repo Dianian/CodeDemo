@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TitleView"
+                android:textAllCaps="false" />
+
+            <com.dainian.viewdemolibrary.TitleView
+                android:id="@+id/titleview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:leftText="left"
+                app:leftTextBackground="@color/colorAccent"
+                app:leftTextColor="@color/colorPrimaryDark"
+                app:rightText="right"
+                app:rightTextBackground="@color/colorPrimaryDark"
+                app:rightTextColor="@color/colorAccent"
+                app:titleText="title"
+                app:titleTextColor="@color/colorPrimary" />
+
+            <Button
+                android:id="@+id/btn_customize_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Customize TextView"
+                android:textAllCaps="false" />
+
+            <com.dainian.viewdemolibrary.TextView1
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:text="Hello World!"
+                android:textSize="50dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.dainian.viewdemolibrary.TextView2
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello World!"
+                android:textSize="50dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_customize_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Customize View"
+                android:textAllCaps="false" />
+
+            <com.dainian.viewdemolibrary.RoundView
+                android:id="@+id/round_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="5dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_event"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="事件传递Demo"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

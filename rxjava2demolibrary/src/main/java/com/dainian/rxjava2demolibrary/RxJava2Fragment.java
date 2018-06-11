@@ -323,38 +323,38 @@ public class RxJava2Fragment extends Fragment {
      * defer方法就是 直到观察者被订阅才会创建被观察者
      */
     private void defer() {
-//        final Integer finalI = 10;
-//        Observable<Integer> observable = Observable.defer(new Callable<ObservableSource<? extends Integer>>() {
-//            @Override
-//            public ObservableSource<? extends Integer> call() throws Exception {
-//                return Observable.just(finalI);
-//            }
-//        });
-////        i = 99;
-//        Observer<Integer> observer = new Observer<Integer>() {
-//            @Override
-//            public void onSubscribe(Disposable d) {
-//
-//            }
-//
-//            @Override
-//            public void onNext(Integer integer) {
-//
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//
-//            }
-//
-//            @Override
-//            public void onComplete() {
-//
-//            }
-//        };
-//        observable.subscribe(observer);
-//        finalI = 11111;
-//        observable.subscribe(observer);
+        Integer i = 99;
+        Observable<Integer> observable = Observable.defer(new Callable<ObservableSource<? extends Integer>>() {
+            @Override
+            public ObservableSource<? extends Integer> call() throws Exception {
+                return Observable.just(i);
+            }
+        });
+
+        Observer<Integer> observer = new Observer<Integer>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Integer integer) {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+        observable.subscribe(observer);
+//       i= 11111;
+        observable.subscribe(observer);
     }
 
     /**
