@@ -3,7 +3,6 @@ package com.dainian.codedemo;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -17,13 +16,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.dainian.codedemo.fragments.ActivityFragment;
 import com.dainian.codedemo.fragments.BroadcastReceiverFragment;
 import com.dainian.codedemo.fragments.DataBaseFragment;
 import com.dainian.codedemo.fragments.PermissionsFragment;
+import com.dainian.photolibrary.PhotoFragment;
 import com.dainian.rxjava2demolibrary.RxJava2Fragment;
 import com.dainian.viewdemolibrary.ViewFragment;
 
@@ -106,6 +105,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.item_database:
                     addFragment(new DataBaseFragment());
                     mToolBar.setTitle("存储相关");
+                    mDeaweerLayout.closeDrawers();
+                    break;
+                case R.id.item_photo:
+                    addFragment(new PhotoFragment());
+                    mToolBar.setTitle("相册相机相关");
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.item_permissions:
