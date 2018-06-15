@@ -23,6 +23,7 @@ import com.dainian.codedemo.fragments.BroadcastReceiverFragment;
 import com.dainian.codedemo.fragments.DataBaseFragment;
 import com.dainian.codedemo.fragments.PermissionsFragment;
 import com.dainian.photolibrary.PhotoFragment;
+import com.dainian.providercontactslibrary.ProviderContactsFragment;
 import com.dainian.rxjava2demolibrary.RxJava2Fragment;
 import com.dainian.viewdemolibrary.ViewFragment;
 
@@ -102,9 +103,19 @@ public class MainActivity extends AppCompatActivity {
                     addFragment(new ActivityFragment());
                     mDeaweerLayout.closeDrawers();
                     break;
+                case R.id.item_provider:
+                    addFragment(new ProviderContactsFragment());
+                    mToolBar.setTitle("Provider 联系人示例");
+                    mDeaweerLayout.closeDrawers();
+                    break;
                 case R.id.item_database:
                     addFragment(new DataBaseFragment());
                     mToolBar.setTitle("存储相关");
+                    mDeaweerLayout.closeDrawers();
+                    break;
+                case R.id.item_notification:
+                    addFragment(new DataBaseFragment());
+                    mToolBar.setTitle("通知相关");
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.item_photo:
