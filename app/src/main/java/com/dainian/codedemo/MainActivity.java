@@ -22,6 +22,7 @@ import com.dainian.codedemo.fragments.ActivityFragment;
 import com.dainian.codedemo.fragments.BroadcastReceiverFragment;
 import com.dainian.codedemo.fragments.DataBaseFragment;
 import com.dainian.codedemo.fragments.PermissionsFragment;
+import com.dainian.notificationlibrary.NotificationFragment;
 import com.dainian.photolibrary.PhotoFragment;
 import com.dainian.providercontactslibrary.ProviderContactsFragment;
 import com.dainian.rxjava2demolibrary.RxJava2Fragment;
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.item_notification:
-                    addFragment(new DataBaseFragment());
+                    addFragment(new NotificationFragment());
                     mToolBar.setTitle("通知相关");
                     mDeaweerLayout.closeDrawers();
                     break;
