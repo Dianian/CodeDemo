@@ -33,6 +33,7 @@ dependencies {
     implementation project(':rxjava2demolibrary')
     implementation project(path: ':viewdemolibrary')
     implementation project(path: ':photolibrary')
-    compile project(path: ':providercontactslibrary')
-    compile project(path: ':notificationlibrary')
+    implementation project(path: ':providercontactslibrary')
+    implementation project(path: ':notificationlibrary')
+    compile project(path: ':threaddemo')
 }

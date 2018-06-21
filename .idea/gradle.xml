@@ -9,10 +9,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/mediademolibrary" />
             <option value="$PROJECT_DIR$/notificationlibrary" />
             <option value="$PROJECT_DIR$/photolibrary" />
             <option value="$PROJECT_DIR$/providercontactslibrary" />
             <option value="$PROJECT_DIR$/rxjava2demolibrary" />
+            <option value="$PROJECT_DIR$/threaddemo" />
             <option value="$PROJECT_DIR$/viewdemolibrary" />
           </set>
         </option>

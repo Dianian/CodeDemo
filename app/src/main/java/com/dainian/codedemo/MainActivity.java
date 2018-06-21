@@ -26,6 +26,7 @@ import com.dainian.notificationlibrary.NotificationFragment;
 import com.dainian.photolibrary.PhotoFragment;
 import com.dainian.providercontactslibrary.ProviderContactsFragment;
 import com.dainian.rxjava2demolibrary.RxJava2Fragment;
+import com.dainian.threaddemo.ThreadsFragment;
 import com.dainian.viewdemolibrary.ViewFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -117,6 +118,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.item_notification:
                     addFragment(new NotificationFragment());
                     mToolBar.setTitle("通知相关");
+                    mDeaweerLayout.closeDrawers();
+                    break;
+                case R.id.item_hreads:
+                    addFragment(new ThreadsFragment());
+                    mToolBar.setTitle("线程相关");
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.item_photo:
