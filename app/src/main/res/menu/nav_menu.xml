@@ -50,7 +50,7 @@
         <item
             android:id="@+id/item_media"
             android:icon="@drawable/ic_launcher_foreground"
-            android:title="多媒体" />
+            android:title="简单播放本地音视频" />
         <item
             android:id="@+id/item_rxjava2"
             android:icon="@drawable/ic_launcher_foreground"

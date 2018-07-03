@@ -37,4 +37,5 @@ dependencies {
     implementation project(path: ':notificationlibrary')
     implementation project(path: ':threaddemo')
     implementation project(path: ':httpsimplelibrary')
+    implementation project(path: ':mediademolibrary')
 }

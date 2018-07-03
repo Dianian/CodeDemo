@@ -23,6 +23,7 @@ import com.dainian.codedemo.fragments.BroadcastReceiverFragment;
 import com.dainian.codedemo.fragments.DataBaseFragment;
 import com.dainian.codedemo.fragments.PermissionsFragment;
 import com.dainian.httpsimplelibrary.HttpSimpleFragment;
+import com.dainian.mediademolibrary.MediaFragment;
 import com.dainian.notificationlibrary.NotificationFragment;
 import com.dainian.photolibrary.PhotoFragment;
 import com.dainian.providercontactslibrary.ProviderContactsFragment;
@@ -147,8 +148,8 @@ public class MainActivity extends AppCompatActivity {
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.item_media:
-                    addFragment(new PermissionsFragment());
-                    mToolBar.setTitle("多媒体相关");
+                    addFragment(new MediaFragment());
+                    mToolBar.setTitle("简单播放本地音视频");
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.item_rxjava2:
