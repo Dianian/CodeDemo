@@ -22,6 +22,7 @@ import com.dainian.codedemo.fragments.ActivityFragment;
 import com.dainian.codedemo.fragments.BroadcastReceiverFragment;
 import com.dainian.codedemo.fragments.DataBaseFragment;
 import com.dainian.codedemo.fragments.PermissionsFragment;
+import com.dainian.httpsimplelibrary.HttpSimpleFragment;
 import com.dainian.notificationlibrary.NotificationFragment;
 import com.dainian.photolibrary.PhotoFragment;
 import com.dainian.providercontactslibrary.ProviderContactsFragment;
@@ -128,6 +129,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.item_photo:
                     addFragment(new PhotoFragment());
                     mToolBar.setTitle("相册相机相关");
+                    mDeaweerLayout.closeDrawers();
+                    break;
+                case R.id.item_http:
+                    addFragment(new HttpSimpleFragment());
+                    mToolBar.setTitle("Http/WebView简单使用");
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.item_permissions:

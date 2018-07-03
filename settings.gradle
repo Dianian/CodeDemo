@@ -1,1 +1,1 @@
-include ':app', ':rxjava2demolibrary', ':viewdemolibrary', ':photolibrary', ':providercontactslibrary', ':notificationlibrary', ':mediademolibrary', ':threaddemo'
+include ':app', ':rxjava2demolibrary', ':viewdemolibrary', ':photolibrary', ':providercontactslibrary', ':notificationlibrary', ':mediademolibrary', ':threaddemo', ':httpsimplelibrary'
