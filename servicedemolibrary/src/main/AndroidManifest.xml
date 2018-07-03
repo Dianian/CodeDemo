@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.servicedemolibrary">
+
+    <application>
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".MyBindService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".IntentActivity"></activity>
+    </application>
+
+</manifest>

@@ -30,6 +30,7 @@ import com.dainian.providercontactslibrary.ProviderContactsFragment;
 import com.dainian.rxjava2demolibrary.RxJava2Fragment;
 import com.dainian.threaddemo.ThreadsFragment;
 import com.dainian.viewdemolibrary.ViewFragment;
+import com.example.servicedemolibrary.ServiceDemoFragment;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar mToolBar;
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.item_service:
-                    addFragment(new ActivityFragment());
+                    addFragment(new ServiceDemoFragment());
                     mDeaweerLayout.closeDrawers();
                     break;
                 case R.id.item_provider:

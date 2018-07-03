@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Service 启动"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_stop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Service 暂停"
+        android:textAllCaps="false" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"/>
+    <Button
+        android:id="@+id/btn_start_bind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bind Service 启动"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_stop_bind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bind Service 暂停"
+        android:textAllCaps="false" />
+</LinearLayout>

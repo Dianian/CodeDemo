@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "com.dainian.codedemo"
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -38,4 +38,5 @@ dependencies {
     implementation project(path: ':threaddemo')
     implementation project(path: ':httpsimplelibrary')
     implementation project(path: ':mediademolibrary')
+    implementation project(path: ':servicedemolibrary')
 }
