@@ -25,11 +25,12 @@ public class ServiceDemoFragment extends Fragment {
     private Button mBtnStartBind;
     private Button mBtnStopBind;
     private MyBindService.DownBinder mDownBinder;
+    private Button mBtnStartIntent;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        sActivity= (Activity) context;
+        sActivity = (Activity) context;
     }
 
     @Nullable
@@ -46,6 +47,7 @@ public class ServiceDemoFragment extends Fragment {
         mBtnStop = view.findViewById(R.id.btn_stop);
         mBtnStartBind = view.findViewById(R.id.btn_start_bind);
         mBtnStopBind = view.findViewById(R.id.btn_stop_bind);
+        mBtnStartIntent = view.findViewById(R.id.btn_start_intent);
     }
 
     private void initEvent() {
@@ -76,7 +78,16 @@ public class ServiceDemoFragment extends Fragment {
         mBtnStopBind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              getActivity().unbindService(mServiceConnection);//解绑服务
+                getActivity().unbindService(mServiceConnection);//解绑服务
+            }
+        });
+
+        //启动 IntentService
+        mBtnStartIntent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MyIntentService.class);
+                getActivity().startService(intent);
             }
         });
     }
@@ -85,7 +96,7 @@ public class ServiceDemoFragment extends Fragment {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             //绑定成功时调用
-            mDownBinder= (MyBindService.DownBinder) service;
+            mDownBinder = (MyBindService.DownBinder) service;
             mDownBinder.startDown();
             mDownBinder.getProgress();
         }

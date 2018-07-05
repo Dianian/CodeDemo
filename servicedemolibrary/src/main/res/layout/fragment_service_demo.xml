@@ -35,4 +35,15 @@
         android:layout_height="wrap_content"
         android:text="Bind Service 暂停"
         android:textAllCaps="false" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"/>
+    <Button
+        android:id="@+id/btn_start_intent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="IntentService 启动"
+        android:textAllCaps="false" />
 </LinearLayout>

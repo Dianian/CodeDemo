@@ -12,7 +12,11 @@
             android:enabled="true"
             android:exported="true" />
 
+        <service android:name=".MyIntentService" />
+
         <activity android:name=".IntentActivity"></activity>
+
+
     </application>
 
 </manifest>
